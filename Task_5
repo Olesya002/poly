@@ -1,0 +1,10 @@
+syms n;
+syms x;
+P = sym2poly(subs(x^(2*n)-n*x^(n+1)+n*x^(n-1)-1,n,2));
+a = roots(P);
+disp(a);
+x = linspace(-5,5,100);
+F = polyval(P,x);
+plot(x,F);
+grid on
+hold on
