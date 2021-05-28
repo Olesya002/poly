@@ -35,3 +35,23 @@ for a = F1
     f2 = f2 + a;
 end
 disp(f2);
+
+%%
+
+P = [1, 0, -4 , 6, -8, 10];
+P1 = [0, -4 , 6, -8, 10];
+x0 = 2;
+f1 = 1;
+for a = P1
+    f1 = f1 * x0;
+    f1 = f1 + a;
+end
+disp(f1);
+F1 = polyder(P);
+f2 = F1(1);
+F1(1)=[];
+for a = F1
+    f2 = f2 * x0;
+    f2 = f2 + a;
+end
+disp(f2);
