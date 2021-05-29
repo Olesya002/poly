@@ -1,0 +1,26 @@
+P = [1 0.1 0.2 -0.2 -2 1];
+r = roots(P);
+r_max = max(r);
+x = -abs(r_max) : 0.01 : abs(r_max);
+x1 = 1/2*abs(r_max);
+x2 = -1/2*abs(r_max);
+y = polyval(P,x);
+P1 = polyder(P);
+plot(x,y);
+grid on
+hold on
+f = polyval(P,x1)+polyval(P1,x1).*(x-x1);
+plot(x,f);
+hold on
+x2_k = 1/(polyval(P1,x2));
+x = -abs(r_max) : 0.01 : (-abs(r_max) + 1);
+f1 = -x2_k.*x + x2_k*x2 + polyval(P,x2);
+plot(x,f1);
+t = 0 : 0.01 : 4*pi;
+r_real = real(r(1));
+u = r_real.*cos(t);
+v = r_real.*sin(t);
+plot(u,v,'Linewidth',1);
+grid on
+hold on
+plot(real(r),imag(r),'r*');
