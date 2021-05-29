@@ -1,3 +1,4 @@
+Fig = figure;
 P = [1 0.1 0.2 -0.2 -2 1];
 r = roots(P);
 r_max = max(r);
@@ -6,6 +7,7 @@ x1 = 1/2*abs(r_max);
 x2 = -1/2*abs(r_max);
 y = polyval(P,x);
 P1 = polyder(P);
+subplot(1,2,1)
 plot(x,y);
 grid on
 hold on
@@ -20,6 +22,7 @@ t = 0 : 0.01 : 4*pi;
 r_real = real(r(1));
 u = r_real.*cos(t);
 v = r_real.*sin(t);
+subplot(1,2,2)
 plot(u,v,'Linewidth',1);
 grid on
 hold on
